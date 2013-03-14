@@ -3,8 +3,8 @@ var http = require('http'),
   nconf = require('nconf'),
   moment = require('moment'),
   WaterLevelSensor = require('../lib/sensor.js'),
-  TwitterUpdater = require('../lib/twitter.js'),
-  GeckoboardPusher = require('../lib/geckoboard.js');
+  TwitterUpdater = require('./twitter.js'),
+  GeckoboardPusher = require('./geckoboard.js');
 
 
 // Read in config file and verify that it exists.
