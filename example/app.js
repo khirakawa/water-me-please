@@ -1,12 +1,22 @@
 var http = require('http'),
+  fs = require('fs'),
   nconf = require('nconf'),
   moment = require('moment'),
-  WaterLevelSensor = require('./lib/sensor.js'),
-  TwitterUpdater = require('./lib/twitter.js'),
-  GeckoboardPusher = require('./lib/geckoboard.js');
+  WaterLevelSensor = require('../lib/sensor.js'),
+  TwitterUpdater = require('../lib/twitter.js'),
+  GeckoboardPusher = require('../lib/geckoboard.js');
+
+
+// Read in config file and verify that it exists.
+var configFilePath = __dirname + '/' + process.argv[2];
+if (!fs.existsSync(configFilePath)) {
+  console.log("failed to find configFile at ", process.argv[2]);
+  console.log("make sure you pass it in as first argument: node app.js [relative_path_to_config_file]");
+  process.exit(1);
+}
 
 // read in configuration
-nconf.argv().env().file({ file: 'config.json' });
+nconf.argv().env().file({ file: configFilePath });
 
 // first setup twitter
 var twitterUpdater = new TwitterUpdater(nconf.get("twitter"));
