@@ -1,0 +1,19 @@
+{
+	"measure_interval": 5000,
+	"arduino": {
+		"pin": 7,
+		"sensor_pin": "A0",
+		"baudrate": 9600,
+		"debug": true
+	},
+	"twitter": {
+		"consumer_key": "",
+		"consumer_secret": "",
+		"access_token_key": "",
+		"access_token_secret": ""
+	},
+	"geckoboard": {
+		"widget_key": "",
+		"api_key": ""
+	}
+}
